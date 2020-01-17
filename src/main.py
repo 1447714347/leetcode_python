@@ -1,4 +1,4 @@
-
+from collections import Counter
 class Solution(object):
     def detectCapitalUse(self, word):
         if len(word) == 1:
@@ -46,6 +46,16 @@ class Solution(object):
                 arr.pop()
                 i += 1
             i += 1
+
+    def commonChars(self, A):
+        """
+        :type A: List[str]
+        :rtype: List[str]
+        """
+        ans = Counter(A[0])
+        for i in range(1, len(A)):
+            ans &= Counter(A[i])
+        return list(ans.elements())
 
 if __name__ == "__main__":
     s1 = Solution()
