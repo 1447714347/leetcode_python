@@ -33,7 +33,20 @@ class Solution(object):
             index -= 1
         return 0
 
+    def duplicateZeros(self, arr):
+        """
+        :type arr: List[int]
+        :rtype: None Do not return anything, modify arr in-place instead.
+        """
+        i = 0
+        size = len(arr)
+        while i < size:
+            if arr[i] == 0:
+                arr.insert(i, 0)
+                arr.pop()
+                i += 1
+            i += 1
 
 if __name__ == "__main__":
     s1 = Solution()
-    print s1.detectCapitalUse("mL")
+    print s1.duplicateZeros([1,0,2,3,0,4,5,0])
